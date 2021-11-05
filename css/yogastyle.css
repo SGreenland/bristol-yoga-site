@@ -141,13 +141,17 @@ a:hover {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  filter: brightness(0.7);
+  filter: brightness(0.5);
 }
 
 #underlay {
   position: absolute;
   width: 100%;
   height: 100%;
+  background-image: url(/images/yoga-site-background-pic.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: center;
   z-index: -1;
   opacity: 0;
   animation: fadeInOut 6s ease-in-out infinite;
@@ -166,13 +170,13 @@ a:hover {
 }
 
 .quote-container {
-  padding: 75px;
+  /* padding: 75px; */
   position: absolute;
   z-index: 10;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  top: 20vh;
+  margin: auto;
+  left: 10px;
+  right: 10px;
+  top: 45%;
 }
 
 .quote {
@@ -313,7 +317,7 @@ footer p {
     font-size: smaller;
   }
 
-  .quote-container {
-    font-size: 2.5vw;
+  .quote {
+    font-size: medium;
   }
 }
