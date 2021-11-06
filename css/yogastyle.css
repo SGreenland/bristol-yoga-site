@@ -153,8 +153,8 @@ a:hover {
   background-size: cover;
   background-position-y: center;
   z-index: -1;
-  opacity: 0;
-  animation: fadeInOut 6s ease-in-out infinite;
+  opacity: 1;
+  animation: fadeInOut 6s ease-in-out 250ms infinite;
 }
 
 @keyframes fadeInOut {
@@ -164,7 +164,7 @@ a:hover {
   50% {
     opacity: 0;
   }
-  100% {
+  95% {
     opacity: 1;
   }
 }
