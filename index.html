@@ -126,7 +126,7 @@
 
         <span id="booking">content</span>
         <div class="form">
-            <h2>Book your place now!</h2>
+            <h2 id="formHeading">Book your place now!</h2>
             <input type="text" placeholder="Name" required="required">
             <input type="email" placeholder="Email" required="required">
             <input id="calender" type="date" placeholder="Date" required="required" min="">
@@ -196,7 +196,6 @@
                     break;
                 default: return;
             }
-            console.log(teacherInfo)
             count++;
             if (count === 1 || count % 2) {
                 document.getElementById(teacherInfo.id).style.display = "flex";
@@ -212,17 +211,14 @@
         }
 
         function showTip() {
-            if (window.location.hash === "#team") {
+            if (window.scrollY > 500) {
                 const tip = document.getElementById("proTip");
                 tip.style.display = "inline";
                 tip.style.animation = "showTip 3s linear";
-                setTimeout(() => {
-                    tip.style.animation = "none";
-                    // tip.style.display = "none";
-                }, 4000);
-                
             }
         }
+
+        
 
 
         window.onload = setImage(), getDateMin();

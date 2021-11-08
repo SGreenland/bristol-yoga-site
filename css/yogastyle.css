@@ -186,6 +186,15 @@ a:hover {
   font-size: larger;
 }
 
+.about {
+  font-size: medium;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5vw;
+  background-color: #806272;
+}
+
 #proTip {
   position: absolute;
   font-size: smaller;
@@ -194,7 +203,6 @@ a:hover {
   opacity: 0;
   white-space: nowrap;
 }
-
 
 
 @keyframes showTip {
@@ -207,18 +215,9 @@ a:hover {
 .team {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
   background-color: #a58998;
   filter: drop-shadow(3px 5px 7px #795677);
-}
-
-.about {
-  font-size: medium;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 75px;
-  background-color: #806272;
 }
 
 .teacher {
@@ -247,6 +246,11 @@ a:hover {
 
 figcaption {
   text-align: center;
+}
+
+#formHeading {
+  background-color:#806272;
+  padding-inline: 5px;
 }
 
 .form {
