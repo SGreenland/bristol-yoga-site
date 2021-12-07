@@ -19,7 +19,7 @@ main {
 
 #fixedTop {
   position: fixed;
-  width: 100%;
+  width: 100vw;
   height: 110px;
   display: flex;
   flex-direction: column;
@@ -96,8 +96,7 @@ i {
 .nav {
   display: flex;
   height: 40px;
-  width: auto;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   background-color: rgb(99 134 139);
 }
@@ -110,17 +109,34 @@ i {
 
 a {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  text-align: center;
   text-decoration: none;
   color: ghostwhite;
-  padding: 3px 30px;
+  padding: 3px;
   width: 5%;
 }
 
-a:hover {
+a::after {
+  content: "";
+  width: 100%;
+  position: relative;
+  top: 3px;
+  background: ghostwhite;
+  border: 1px solid;
+  transform: scaleX(0);
+  transition: 500ms transform;
+}
+
+a:hover::after {
+  transform: scaleX(1);
+}
+
+/* a:hover {
   background-image: -webkit-radial-gradient(rgb(93 136 142), rgb(38, 71, 74));
   border-bottom: 3px solid ghostwhite;
-}
+} */
 
 #about,
 #team,
@@ -130,6 +146,12 @@ a:hover {
   height: 110px;
   visibility: hidden;
   margin-top: -110px;
+}
+
+p {
+  font-family: "Yantramanav", sans-serif;
+  font-size: 1.3em;
+  line-height: 1.5;
 }
 
 #biddle {
@@ -204,19 +226,24 @@ a:hover {
   white-space: nowrap;
 }
 
-
 @keyframes showTip {
-  0% {opacity: 0;}
-  50% {opacity: 1;}
-  100% {opacity: 0;}
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
-
 
 .team {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   background-color: #a58998;
+  padding-inline: 5vw;
   filter: drop-shadow(3px 5px 7px #795677);
 }
 
@@ -238,7 +265,7 @@ a:hover {
 }
 
 .teacherInfo {
-  width: 250px;
+  /* width: 250px; */
   padding: 10px;
   height: 350px;
   overflow: hidden;
@@ -249,7 +276,7 @@ figcaption {
 }
 
 #formHeading {
-  background-color:#806272;
+  background-color: #806272;
   padding-inline: 5px;
 }
 
@@ -265,14 +292,15 @@ figcaption {
   padding: 55px;
 }
 
-.form input {
+.form input,
+#submit {
   width: 200px;
+  height: 50px;
   text-align: center;
   padding: 1em;
   margin: 5px;
   /* border-radius: 5%; */
-  font-family: "Mukta", sans-serif;
-  border-color: lightsteelblue;
+  /* border-color: lightsteelblue; */
 }
 
 #submit {
@@ -280,12 +308,71 @@ figcaption {
   color: ghostwhite;
   font-size: medium;
   font-weight: bold;
+  border: none;
+}
+
+#btnOverlay {
+  width: 200px;
+  height: 50px;
+  position: relative;
+  bottom: 54px;
+  z-index: -1;
+}
+
+#btnOverlay::before {
+  content: "";
+  display: block;
+  border-left: 2px solid;
+  height: 50px;
+  transform: scale(0);
+  transition: 500ms transform;
+}
+
+#btnOverlay::after {
+  content: "";
+  display: block;
+  border-right: 2px solid;
+  height: 50px;
+  position: relative;
+  bottom: 50px;
+  transform: scale(0);
+  transition: 500ms transform;
+}
+
+#submit::before {
+  content: "";
+  /* box-sizing: border-box; */
+  display: block;
+  position: relative;
+  width: 200px;
+  bottom: 1em;
+  right: 1em;
+  border-top: 2px solid ghostwhite;
+  transform: scale(0);
+  transition: 500ms transform;
+}
+
+#submit::after {
+  content: "";
+  /* box-sizing: border-box; */
+  display: block;
+  position: relative;
+  width: 200px;
+  top: 0.8em;
+  right: 1em;
+  border-bottom: 2px solid ghostwhite;
+  transform: scale(0);
+  transition: 500ms transform;
+}
+
+#submit:hover::after,
+#submit:hover::before {
+  transform: scale(1);
 }
 
 #submit:hover {
   filter: drop-shadow(2px 4px 6px #806272);
   cursor: pointer;
-  border-top: 2px solid;
 }
 
 footer {
@@ -301,8 +388,12 @@ footer p {
 }
 
 @media (max-width: 600px) {
-  body {
+  /* body {
     width: fit-content;
+  } */
+
+  a {
+    width: 20%;
   }
 
   .teacher {
